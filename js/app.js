@@ -1,6 +1,6 @@
 //EXEMPLO DO CÓDIGO PARA UM PRODUTO
 
-var html = '';
+
 function productItem(product) {
 
   var item = `<div class="product" data-name=${product.name} data-brand=${product.brand} data-type=${product.product_type} tabindex="508">
@@ -22,12 +22,18 @@ function productItem(product) {
 
 }
 
-async function renderProducts(product) {
+async function renderProducts(products) {
 
-    item = productItem(product)
+  var html = '';
+  await products.map((product) => (   
+    html += productItem(product)
+     ))
 
-    html += item
+   mycatalog = document.getElementById("mycatalog");
 
+     console.log(html)
+     mycatalog.innerHTML = html
+     
 }
 
 async function getProducts() {
@@ -38,15 +44,10 @@ async function getProducts() {
 
   fetch(url)
   .then(response => response.json()) 
-  .then(json => json.map((product) => (
-  
-    renderProducts(product)))
-  )       
+  .then(products => (renderProducts(products)))    
   .catch(erro => console.log(erro))
 
 }
-
-
 
 //EXEMPLO DO CÓDIGO PARA OS DETALHES DE UM PRODUTO
 function loadDetails(product) {
@@ -80,8 +81,6 @@ function loadDetails(product) {
 
 getProducts();
 
-mycatalog = document.querySelector(".catalog");
-mycatalog.innerHTML = html
 
 
        
