@@ -1,49 +1,62 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Make Up Catalog</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Make Up Catalog</h1>
-    </header>
-    <main>
-      <form class="catalog-control">
-        <div class="form-control">
-          <label for="filter-name">Nome:</label>
-          <input type="text" id="filter-name" />
-        </div>
-        <div class="form-control">
-          <label for="filter-brand">Marca:</label>
-          <select id="filter-brand">
-            <option value="">Todos</option>
-          </select>
-        </div>
-        <div class="form-control">
-          <label for="filter-type">Tipo:</label>
-          <select id="filter-type">
-            <option value="">Todos</option>
-          </select>
-        </div>
-        <div class="form-control">
-          <label for="sort"></label>
-          <select id="sort-type">
-            <option>Melhor Avaliados</option>
-            <option>Menores Preços</option>
-            <option>Maiores Preços</option>
-            <option>A-Z</option>
-            <option>Z-A</option>
-          </select>
-        </div>
-      </form>
-      <section id="mycatalog" class="catalog"></section>
-    </main>
-    <script src="js/app.js"> type="text/javascript"</script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Make Up Catalog</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Make Up Catalog</h1>
+  </header>
+  <main>
+    <form class="catalog-control">
+      <div class="form-control">
+        <label for="filter-name">Nome:</label>
+        <input type="text" id="filter-name" />
+      </div>
+      <div class="form-control">
+        <label for="filter-brand">Marca:</label>
+        <select id="filter-brand">
+          <option value="">Todos</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="filter-type">Tipo:</label>
+        <select id="filter-type" onmouseup="selectType()">
+          <option value="">Todos</option>
+          <option value="Blush">Blush</option>
+          <option value="Bronzer">Bronzer</option>
+          <option value="Eyebrow">Eyebrow</option>
+          <option value="Eyeliner">Eyeliner</option>
+          <option value="Eyeshadow">Eyeshadow</option>
+          <option value="Foundation">Foundation</option>
+          <option value="Eyeshadow">Eyeshadow</option>
+          <option value="Lip liner">Lip liner</option>
+          <option value="Lipstick">Lipstick</option>
+          <option value="Mascara">Mascara</option>
+          <option value="Nail polish">Eyebrow</option>
+          <option value="Lipstick">Lipstick</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="sort"></label>
+        <select id="sort-type">
+          <option>Melhor Avaliados</option>
+          <option>Menores Preços</option>
+          <option>Maiores Preços</option>
+          <option>A-Z</option>
+          <option>Z-A</option>
+        </select>
+      </div>
+    </form>
+    <section id="mycatalog" class="catalog"></section>
+  </main>
+  <script src="js/app.js"> type = "text/javascript"</script>
+</body>
+
 </html>

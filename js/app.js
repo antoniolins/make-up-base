@@ -1,9 +1,39 @@
-//EXEMPLO DO CÓDIGO PARA UM PRODUTO
 
+
+//EXEMPLO DO CÓDIGO PARA UM PRODUTO
+var url = ''
+var products = [{}]
+url = 'http://makeup-api.herokuapp.com/api/v1/products.json';
+
+
+
+
+function selectType() {
+
+  const selecter = document.getElementById('filter-type')
+  const valueSelected = selecter.options[selecter.selectedIndex].value
+
+
+  const element = document.getElementById('div-product');
+  element.remove(); 
+
+  let productsx = products.filter((product) => product.product_type === valueSelected);
+
+  var html = '';
+   productsx.map((product) => (
+    html += productItem(product)
+  ))
+
+  mycatalog = document.getElementById("mycatalog");
+
+  mycatalog.innerHTML = html
+
+
+}
 
 function productItem(product) {
 
-  var item = `<div class="product" data-name=${product.name} data-brand=${product.brand} data-type=${product.product_type} tabindex="508">
+  var item = `<div id="div-product" class="product" data-name=${product.name} data-brand=${product.brand} data-type=${product.product_type} tabindex="508">
   <figure class="product-figure">
     <img src="${product.image_link}" width="215" height="215" alt="NYX Mosaic Powder Blush Paradise" onerror="javascript:this.src='img/unavailable.png'">
   </figure>
@@ -11,41 +41,41 @@ function productItem(product) {
     <h1 class="product-name">${product.name} </h1>
     <div class="product-brands">
           <span class="product-brand background-brand">${product.brand}</span>
-          <span class="product-brand background-price">R$ ${product.price * 4.5}</span></div>
+          <span class="product-brand background-price">R$ ${product.price * 4.5}  </span></div>
   </section>
 
   // CARREGAR OS DETALHES
 
   
   </div>`;
- return item
+  return item
 
 }
 
-async function renderProducts(products) {
+async function renderProducts(productsx) {
+
+
+  let = products = productsx
 
   var html = '';
-  await products.map((product) => (   
+  await products.map((product) => (
     html += productItem(product)
-     ))
+  ))
 
-   mycatalog = document.getElementById("mycatalog");
+  mycatalog = document.getElementById("mycatalog")
 
-     console.log(html)
-     mycatalog.innerHTML = html
-     
+  mycatalog.innerHTML = html
+
 }
 
 async function getProducts() {
 
-  let url = 'http://makeup-api.herokuapp.com/api/v1/products.json';
 
-  let urlx = 'data/products.json';
 
   fetch(url)
-  .then(response => response.json()) 
-  .then(products => (renderProducts(products)))    
-  .catch(erro => console.log(erro))
+    .then(response => response.json())
+    .then(productsx => (renderProducts(productsx)))
+    .catch(erro => console.log(erro))
 
 }
 
@@ -79,8 +109,8 @@ function loadDetails(product) {
       </div></section>`;
 }
 
+
 getProducts();
+renderProducts(products);
 
 
-
-       
