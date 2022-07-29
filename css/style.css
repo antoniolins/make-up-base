@@ -211,3 +211,8 @@ main {
   color: #fff;
   padding: 0 0.2rem;
 }
+
+
+.hide {
+  display: none;
+}

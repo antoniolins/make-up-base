@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Make Up Catalog</title>
   <link rel="stylesheet" href="css/style.css" />
+
 </head>
 
 <body>
@@ -15,9 +16,10 @@
   </header>
   <main>
     <form class="catalog-control">
-      <div class="form-control">
+      <div class="form-control" >
         <label for="filter-name">Nome:</label>
-        <input type="text" id="filter-name" />
+        <input type="text" id="filter-name" name="search" value=""
+               onkeyup="mySearch()" />
       </div>
       <div class="form-control">
         <label for="filter-brand">Marca:</label>
@@ -27,20 +29,19 @@
       </div>
       <div class="form-control">
         <label for="filter-type">Tipo:</label>
-        <select id="filter-type" onmouseup="selectType()">
-          <option value="">Todos</option>
-          <option value="Blush">Blush</option>
-          <option value="Bronzer">Bronzer</option>
-          <option value="Eyebrow">Eyebrow</option>
-          <option value="Eyeliner">Eyeliner</option>
-          <option value="Eyeshadow">Eyeshadow</option>
-          <option value="Foundation">Foundation</option>
-          <option value="Eyeshadow">Eyeshadow</option>
-          <option value="Lip liner">Lip liner</option>
-          <option value="Lipstick">Lipstick</option>
-          <option value="Mascara">Mascara</option>
-          <option value="Nail polish">Eyebrow</option>
-          <option value="Lipstick">Lipstick</option>
+        <select id="filter-type" onclick="selectType()">
+          <option value="todos">Todos</option>
+          <option value="blush">Blush</option>
+          <option value="bronzer">Bronzer</option>
+          <option value="eyebrow">Eyebrow</option>
+          <option value="eyeliner">Eyeliner</option>
+          <option value="eyeshadow">Eyeshadow</option>
+          <option value="foundation">Foundation</option>
+          <option value="eyeshadow">Eyeshadow</option>
+          <option value="lip_liner">Lip liner</option>
+          <option value="lipstick">Lipstick</option>
+          <option value="mascara">Mascara</option>
+          <option value="nail_polish">Eyebrow</option>
         </select>
       </div>
       <div class="form-control">
@@ -55,8 +56,28 @@
       </div>
     </form>
     <section id="mycatalog" class="catalog"></section>
-  </main>
+
+    <template product-data-template>
+        <div  product-data-card id="div-product" class="product" data-name data-brand data-type tabindex="508">
+            <figure class="product-figure">
+              <img src width="215" height="215" alt="NYX Mosaic Powder Blush Paradise" onerror="javascript:this.src='img/unavailable.png'">
+            </figure>
+          <section class="product-description">
+              <h1 class="product-name"> </h1>
+              <div class="product-brands">
+                    <span class="product-brand background-brand"></span>
+                    <span class="product-brand background-price"></span>
+              </div>
+          </section>
+        </div>
+    </template>    
+
+  </main>  
+  
+  
   <script src="js/app.js"> type = "text/javascript"</script>
+
+
 </body>
 
 </html>
