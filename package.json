@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "axios": "^0.27.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "jsdom": "^20.0.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21"
   }
 }

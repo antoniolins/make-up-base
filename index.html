@@ -8,6 +8,8 @@
   <title>Make Up Catalog</title>
   <link rel="stylesheet" href="css/style.css" />
 
+  <script src="modules/lodash.js"> </script>
+
 </head>
 
 <body>
@@ -46,38 +48,19 @@
       </div>
       <div class="form-control">
         <label for="sort"></label>
-        <select id="sort-type">
-          <option>Melhor Avaliados</option>
-          <option>Menores Preços</option>
-          <option>Maiores Preços</option>
-          <option>A-Z</option>
-          <option>Z-A</option>
+        <select id="sort-type" onclick="productOrderBy()">
+          <option value="descRating">Melhor Avaliados</option>
+          <option value="ascPrice">Menores Preços</option>
+          <option value="descPrice">Maiores Preços</option>
+          <option value="ascName">A-Z</option>
+          <option value="descName">Z-A</option>
         </select>
       </div>
     </form>
-    <section id="mycatalog" class="catalog"></section>
-
-    <template product-data-template>
-        <div  product-data-card id="div-product" class="product" data-name data-brand data-type tabindex="508">
-            <figure class="product-figure">
-              <img src width="215" height="215" alt="NYX Mosaic Powder Blush Paradise" onerror="javascript:this.src='img/unavailable.png'">
-            </figure>
-          <section class="product-description">
-              <h1 class="product-name"> </h1>
-              <div class="product-brands">
-                    <span class="product-brand background-brand"></span>
-                    <span class="product-brand background-price"></span>
-              </div>
-          </section>
-        </div>
-    </template>    
-
-  </main>  
+    <section catalog-container id="mycatalog" class="catalog"></section>
+  </main> 
   
-  
-  <script src="js/app.js"> type = "text/javascript"</script>
-
-
+  <script src="js/app.js"> </script>
 </body>
 
 </html>
